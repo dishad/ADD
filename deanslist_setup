@@ -36,17 +36,25 @@ function install_mac_dependencies() {
 
 }
 
+# Install system dependencies w/package manager for Ubuntu
+function install_dependencies () {
+	sudo apt-get install python3-dev
+}
+
 # Setup the python virtual environment
 function setup_env () {
 	pip install virtualenv
 	
-	# TODO configure for other operating systems
 	if [[ "$OS" == "Mac" ]]
 	then
 		virtualenv -p /usr/local/bin/python3 venv
 		source ./venv/bin/activate
 		pip install --upgrade pip setuptools wheel
 		env LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"
+	else
+		virtualenv -p python3 venv
+		source ./venv/bin/activate
+		pip install --upgrade pip setuptools wheel
 	fi
 
 	pip install -r requirements.txt
@@ -69,9 +77,9 @@ function local_db_setup() {
 }
 
 # Check script's compatability 
-if [[ ! "$OS" == "Mac" ]]
+if [[ ! "$OS" == "Linux" ]] && [[ ! "$OS" == "Mac" ]]
 then
-	echo "[-] Exiting, setup script currently only tested on macOS Sierra"
+	echo "[-] Exiting, setup script currently only tested on macOS Sierra and Ubuntu"
 	exit;
 fi
 
@@ -82,12 +90,17 @@ while true; do
 	   [yY]* )  echo "[*] Initiating setup for platform: $OS";
 				# Dependencies
 				echo "Installing python3-dev. This may require sudo privileges..."
-				brew help > /dev/null
-				if [ $? -ne 0 ]
+				if [ ! "$OS" == "Linux" ] 
 				then
-					install_homebrew
+					brew help > /dev/null
+					if [ $? -ne 0 ]
+					then
+						install_homebrew		
+					else
+						install_mac_dependencies > "$LogFile" 2> "$ErrFile";
+					fi
 				else
-					install_mac_dependencies > "$LogFile" 2> "$ErrFile";
+					install_dependencies > "$LogFile" 2> "$ErrFile";
 				fi
 
 	   		    # Python Environment

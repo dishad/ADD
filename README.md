@@ -1,9 +1,18 @@
-# ADD
-Mock Website
+# deanslist
+By Andrew Aquino, Donald Disha, Aidan Pelisson, and Dylan Russell.
 
-# How to start webserver
-Cd into the project directory and run the command:
+# Overview
+This is gonna change the social media game bruh.
 
-`python manage.py runserver`
+# Setup
+1. Dev setup script, tested on Sierra 10.12:
 
-Then head over to `localhost:8000`
+ `./deanslist_setup`
+
+2. Once the setup script has completed, activate the virtual environment:
+
+ `source ./venv/bin/activate`
+
+3. Finally, start the development server:
+
+ `python manage.py runserver localhost:8001`

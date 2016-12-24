@@ -1,0 +1,131 @@
+#!/bin/bash
+#
+# Setup the development environment for deanslist
+#
+# Author: Andrew Aquino, adapted from Bradley Landherr
+# Date: 23 Dec 2016
+#
+
+LogFile=./setup_log
+ErrFile=./setup_err
+
+# Detect the platform
+OS="`uname`"
+case $OS in
+  'Linux')
+    OS='Linux'
+    ;;
+  'Darwin') 
+    OS='Mac'
+    ;;
+  'AIX') ;;
+  *) ;;
+esac
+
+function install_mac_dependencies() {
+
+	brew update
+	brew upgrade
+	brew prune
+	brew install python3
+
+	if [ $(xcode-select -p) == 2 ]
+	then
+		xcode-select --install
+	fi
+
+}
+
+# Setup the python virtual environment
+function setup_env () {
+	pip install virtualenv
+	
+	# TODO configure for other operating systems
+	if [[ "$OS" == "Mac" ]]
+	then
+		virtualenv -p /usr/local/bin/python3 venv
+		source ./venv/bin/activate
+		pip install --upgrade pip setuptools wheel
+		env LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"
+	fi
+
+	pip install -r requirements.txt
+}
+
+function local_db_setup() {
+	while true; do
+		read -p "Run the setup script now? y/n   " answer
+		case $answer in
+			[yY]* ) echo "[!] Migrating models to local database"
+					python manage.py makemigrations
+					python manage.py migrate
+	   		    	break;;
+
+	   		[nN]* ) echo "Exiting database update module..."; exit;;
+
+	   		* )     echo "Dude, just enter Y or N, please."; break ;;
+		esac
+	done
+}
+
+# Check script's compatability 
+if [[ ! "$OS" == "Mac" ]]
+then
+	echo "[-] Exiting, setup script currently only tested on macOS Sierra"
+	exit;
+fi
+
+# Initiate the setup
+while true; do 
+	read -p "Run the setup script now? y/n   " answer
+	case $answer in
+	   [yY]* )  echo "[*] Initiating setup for platform: $OS";
+				# Dependencies
+				echo "Installing python3-dev. This may require sudo privileges..."
+				brew help > /dev/null
+				if [ $? -ne 0 ]
+				then
+					install_homebrew
+				else
+					install_mac_dependencies > "$LogFile" 2> "$ErrFile";
+				fi
+
+	   		    # Python Environment
+	   		    echo "Creating the virtual environment..."
+	   		    setup_env >> "$LogFile" 2>> "$ErrFile";
+
+	   		    break;;
+
+	   [nN]* ) echo "Exiting setup..."; exit;;
+
+	   * )     echo "Dude, just enter Y or N, please."; break ;;
+	esac
+done
+ 
+
+# Check for errors
+if [ ! -s "$ErrFile" ]
+then
+	echo "[+] Setup successful! No errors detected"
+	echo "[*] Cleaning and exiting..."
+	rm "$ErrFile"
+	rm "$LogFile"
+	exit
+else
+	
+   	if [[ $(wc -l <$ErrFile) -eq 1 ]]
+   	then
+   		if grep -q "already installed" "$ErrFile"; then
+   			echo "[+] Setup successful! No errors detected"
+			echo "[*] Cleaning and exiting..."
+			rm "$ErrFile"
+			rm "$LogFile"
+			
+			# Dev database setup
+	   		local_db_setup;
+	         
+			exit
+   		fi
+ 	fi
+	echo "[-] Setup failed, check $ErrFile for errors"
+fi

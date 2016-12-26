@@ -5,7 +5,7 @@ By Andrew Aquino, Donald Disha, Aidan Pelisson, and Dylan Russell.
 This is gonna change the social media game bruh.
 
 # Setup
-1. Dev setup script, tested on Sierra 10.12:
+1. Dev setup script, tested on Sierra 10.12 and Ubuntu 14:
 
  `./deanslist_setup`
 

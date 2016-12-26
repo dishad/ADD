@@ -23,7 +23,7 @@ import core.views
 
 urlpatterns = [
     url(r'^$', core.views.index),
-    url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'core/login.html'}),
+    url(r'^login/$', core.views.login), # , {'template_name': 'core/login.html'}
     url(r'^admin/', admin.site.urls),
     #TODO category-slug/
     #TODO category-slug/subcategory-slug

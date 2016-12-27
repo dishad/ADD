@@ -12,3 +12,8 @@ def index(request):
 	t = loader.get_template('core/index.html')
 	c = Context()
 	return HttpResponse(t.render(c))
+
+def login(request):
+	t = loader.get_template('core/index.html')
+	c = Context()
+	return HttpResponse(t.render(c))

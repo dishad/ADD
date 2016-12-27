@@ -1,7 +1,46 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Log In | {{ block.super }}{% endblock %}
 
 {% block content %}
-	<h1>login interface goes here</h1>
+<!--
+	*This creates a header for navigation, may or may not need later*	
+
+	<nav class ='navbar-inverse navbar-fixed-top'>
+		<div class='container'>
+			<div class='navbar-header'>
+				<button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria-expanded='false' aria-controls='navbar'>
+					<span class='sr-only'>Toggle navigation</span>
+				</button>
+				<a class='navbar-brand' href='.'>deanslist</a>
+			</div>
+			<div id='navbar' class='collapse navbar-collapse'></div>
+		</div>
+	</nav>
+!-->
+	<div class='container'>
+		<div class='login'>
+			<div class='loginheader'>
+				<h1 class='noselect'>deanslist</h1>
+			</div>
+			<form>
+					<label class='labeltext'>Username</label>
+					<input type='text' placeholder='Enter Username' name='user' class='textfield' required>
+					<label class='labeltext'>Password</label>
+					<input type=password placeholder='Enter Password' name='pass' class='textfield' required>
+					
+					<div class='loginOptions'>
+						<input type='checkbox'><label class='check'>Keep me signed in</label>
+						<button class='enabledButton' type='submit'>Sign in</button>
+					</div>
+					<div class='account'>
+						<span class='create'><a href='#'>Create an account</a></span>
+						<span class='pass'><a href='#'>Forgot your password?</a></span> 
+					</div>
+			</form>
+		</div>
+	</div>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
 {% endblock %}

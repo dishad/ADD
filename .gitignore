@@ -1,3 +1,5 @@
 *.pyc
 venv/
-*/__pycache__
+*/__pycache_
+setup_err
+setup_log

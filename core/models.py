@@ -22,6 +22,8 @@ class User(models.Model):
     """
     
     # Firstname/lastname? Or is that unnecessary
+    first_name = models.CharField(u'FirstName', max_length=30)
+    last_name = models.CharField(u'FirstName', max_length=30)
     username = models.CharField(u'Username', max_length=30)
     email = models.CharField(u'Email', max_length=30)
     password = models.CharField(u'Password', max_length=30)

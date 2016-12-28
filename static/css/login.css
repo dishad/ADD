@@ -59,6 +59,12 @@ label {
 	color: white;
 }
 
+.createheader {
+	width: 100%;
+	text-align: center;
+	color: white;
+}
+
 form {
 	position: relative;
 	width: 330px;
@@ -90,7 +96,7 @@ a {
 	color: white;
 }
 .pass {
-	margin-left: 68px;
+	/*margin-left: 68px;*/
 }
 
 .account {

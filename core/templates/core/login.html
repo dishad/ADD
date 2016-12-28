@@ -35,9 +35,13 @@
 						<input type='checkbox'><label class='check'>Keep me signed in</label>
 						<button class='enabledButton' type='submit'>Sign in</button>
 					</div>
-					<div class='account'>
-						<span class='create'><a href='#'>Create an account</a></span>
-						<span class='pass'><a href='#'>Forgot your password?</a></span> 
+					<div class='account row'>
+						<div class="col-md-6">
+							<span class='create'><a href="{% url 'core.views.createacc' %}">Create an account</a></span>
+						</div>
+						<div class="col-md-6">		
+							<span class='pass'><a href='#'>Forgot your password?</a></span>
+						</div>
 					</div>
 			</form>
 		</div>

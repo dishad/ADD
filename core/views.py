@@ -14,6 +14,18 @@ def index(request):
 	return HttpResponse(t.render(c))
 
 def login(request):
-	t = loader.get_template('core/index.html')
+
+	# request is post, log in 
+	#if (request.method == 'POST'):
+
+	#else:
+	# request is get, display page
+	t = loader.get_template('core/login.html')
+	c = Context()
+	return HttpResponse(t.render(c))
+
+def createacc(request):
+
+	t = loader.get_template('core/createacc.html')
 	c = Context()
 	return HttpResponse(t.render(c))

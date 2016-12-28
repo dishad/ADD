@@ -24,7 +24,9 @@ import core.views
 urlpatterns = [
     url(r'^$', core.views.index),
     url(r'^login/$', core.views.login), # , {'template_name': 'core/login.html'}
+    url(r'^createacc/', core.views.createacc),
     url(r'^admin/', admin.site.urls),
+
     #TODO category-slug/
     #TODO category-slug/subcategory-slug
     #TODO category-slug/subcategory-slug/ (post-slug? or post number?)

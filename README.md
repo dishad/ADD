@@ -16,3 +16,8 @@ This is gonna change the social media game bruh.
 3. Finally, start the development server:
 
  `python manage.py runserver localhost:8001`
+
+## Populating the database
+To work with temporary dummy data:
+
+ `python manage.py populate_db`

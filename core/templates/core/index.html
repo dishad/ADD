@@ -1,7 +1,39 @@
 {% extends 'base.html' %}
 
-{% block title %}Index | {{ block.super }}{% endblock %}
+{% load custom_tags %}
 
 {% block content %}
-	<p>You logged in! The category listings should be shown here. </p>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">deanslist</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="nav-item">
+					<form class="form-inline float-xs-right">
+						<button class="btn btn-primary navbar-btn" type="button">New Post <span class="glyphicon glyphicon-plus"></span></button>
+					</form>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">My Profile</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Account</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Help</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		{% for category in categories %}
+			<div>
+				{{ category.name }}
+
+				{% get_subcategories category.name %}
+			</div>
+		{% endfor %}
+	</div>
 {% endblock %}

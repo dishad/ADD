@@ -6,12 +6,12 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Category
 
-# Create your views here.
 @login_required
 def index(request):
-	t = loader.get_template('core/index.html')
-	c = Context()
-	return HttpResponse(t.render(c))
+	return render(request, 'core/index.html',
+		{
+			'categories': get_categories()
+		})
 
 def login(request):
 
@@ -29,3 +29,6 @@ def createacc(request):
 	t = loader.get_template('core/createacc.html')
 	c = Context()
 	return HttpResponse(t.render(c))
+
+def get_categories():
+	return Category.objects.all()

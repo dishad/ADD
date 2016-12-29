@@ -25,11 +25,11 @@
 			<div class='loginheader'>
 				<h1 class='noselect'>deanslist</h1>
 			</div>
-			<form>
+			<form method="POST" id="login_form" action="django.contrib.auth.views.login">
 					<label class='labeltext'>Username</label>
-					<input type='text' placeholder='Enter Username' name='user' class='textfield' required>
+					<input id='username' type='text' placeholder='Enter Username' name='username' class='textfield' required>
 					<label class='labeltext'>Password</label>
-					<input type=password placeholder='Enter Password' name='pass' class='textfield' required>
+					<input id='password' type=password placeholder='Enter Password' name='password' class='textfield' required>
 					
 					<div class='loginOptions'>
 						<input type='checkbox'><label class='check'>Keep me signed in</label>

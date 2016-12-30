@@ -4,7 +4,7 @@ html,article,body {
 }
 
 article {
-	background-color: #000;
+	background-color: #aaa;
 }
 
 input[type=text], input[type=password] {
@@ -48,8 +48,7 @@ label {
 	color: #fff;
 	border: 1px solid #fff;
 	display: block;
-	margin: 20px auto;
-	width: 100px;
+	width: 200px;
 	height: 30px;
 }
 

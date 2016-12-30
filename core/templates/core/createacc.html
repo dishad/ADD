@@ -10,9 +10,10 @@
 		<div class="createheader">
 			<h1 class="noselect">Create Account</h1>
 		</div>
-		<form>
 
-			<!-- input fields -->
+		<form method="POST" id="createacc_form" action="">
+
+			<!-- input fields 
 			<label class="labeltext">First Name</label>
 			<input type='text' placeholder='Enter first name' name='fname' class='textfield' required>
 			<label class="labeltext">Last Name</label>
@@ -23,12 +24,27 @@
 			<input type='text' placeholder='Enter Username' name='user' class='textfield' required>
 			<label class='labeltext'>Password</label>
 			<input type=password placeholder='Enter Password' name='pass' class='textfield' required>
+		-->
+
+			{% csrf_token %}
+			{{ form }}
+		
 
 			<div class='loginOptions'>
 				<input type='checkbox'><label class='check'>Keep me signed in</label>
-				<button class='enabledButton' type='submit'>Sign in</button>
+				<input id="createacc_submit" type="submit" value="Create Account" class="enabledButton"/>
 			</div>
 		</form>
+		{% if form.errors %}
+			<div id="form-error">
+				<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
+				<ul>
+					{% for field in form %}
+					<li>{{ field.errors|striptags }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
 	</div>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
 

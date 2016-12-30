@@ -1,5 +1,5 @@
 from django.db import models
-# from django.models import User
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     """
@@ -15,7 +15,7 @@ class Subcategory(models.Model):
     name = models.CharField(u'Name', max_length=100)
     slug = models.SlugField(unique=True)
     description = models.TextField(u'Description', blank=True)
-
+'''
 class User(models.Model):
     
     """
@@ -29,6 +29,8 @@ class User(models.Model):
     email = models.CharField(u'Email', max_length=30)
     password = models.CharField(u'Password', max_length=30)
     # TODO: Password authentication
+'''
+
 
 class SalePost(models.Model):
     

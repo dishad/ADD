@@ -9,12 +9,12 @@ from django.contrib.auth.models import User
 from core.models import Category
 from core.forms import CreateAccForm
 
-# Create your views here.
 @login_required
 def index(request):
-	t = loader.get_template('core/index.html')
-	c = Context()
-	return HttpResponse(t.render(c))
+	return render(request, 'core/index.html',
+		{
+			'categories': get_categories()
+		})
 
 def login(request):
 
@@ -75,3 +75,8 @@ def createacc(request):
 		#c = Context({form: "form"})
 		#return HttpResponse(t.render(c))
 		return render(request, 'core/createacc.html', {'form': form})
+
+
+def get_categories():
+	return Category.objects.all()
+

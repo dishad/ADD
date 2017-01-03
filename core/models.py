@@ -13,11 +13,6 @@ class Category(models.Model):
     #  instance as another's parent_category
 
 
-#TODO Subcategory class?
-class Subcategory(models.Model):
-    name = models.CharField(u'Name', max_length=100)
-    slug = models.SlugField(unique=True)
-    description = models.TextField(u'Description', blank=True)
 '''
 class User(models.Model):
     

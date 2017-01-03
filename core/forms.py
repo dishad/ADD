@@ -15,11 +15,11 @@ class LoginForm(forms.ModelForm):
 class CreateAccForm(forms.ModelForm):
 
 	#form labels
-	first_name = forms.CharField(label="First Name:", max_length=30)
-	last_name = forms.CharField(label="Last Name:", max_length=30)
-	username = forms.CharField(label="Username:", max_length=30)
-	email = forms.CharField(label="Email:", max_length=30)
-	password = forms.CharField(label="Password:", max_length=30, widget=forms.PasswordInput())
+	#first_name = forms.CharField(label="First Name:", max_length=30)
+	#last_name = forms.CharField(label="Last Name:", max_length=30)
+	#username = forms.CharField(label="Username:", max_length=30)
+	#email = forms.CharField(label="Email:", max_length=30)
+	#password = forms.CharField(label="Password:", max_length=30, widget=forms.PasswordInput())
 
 	class Meta:
 		model = User

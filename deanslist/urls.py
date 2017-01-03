@@ -23,7 +23,7 @@ import core.views
 
 urlpatterns = [
     url(r'^$', core.views.index),
-    url(r'^login/$', core.views.login), # , {'template_name': 'core/login.html'}
+    url(r'^login/$', core.views.login), 
     url(r'^createacc/', core.views.createacc),
     url(r'^admin/', admin.site.urls),
 

@@ -23,57 +23,58 @@ To work with temporary dummy data:
  `python manage.py populate_db`
 
 # Listing Categories
-Community
-	School Activities 
-	Local News
-	Philanthropy
-	Parties
-	Rush
-	Sports Events
-	Rideshare
-	Volunteers
-	Lost and Found
-	Classes
-	Group Projects
-	Musicians
-Housing
-	Housing Swap
-	Off Campus
-	School Housing
-	Roommates Needed
-	Sublets
-Jobs
-	Local
-	Part Time
-	Internships
-	Full Time
-	Co-ops
-	University 
-	Research
-Services
-	Automotive
-	Computer
-	Labor/Move
-	Tutoring
-	Pet
-	DJ/Music
-	Household
-For Sale
-	Free Stuff
-	Appliances
-	Vehicles 
-	Tickets
-	Furniture
-	Sporting
-	Books
-	Tools
-	Barter
-	Electronics
-	General
-	Jewelry
-	Photo/Video
-	Music Instruments
-	Gaming 
-	Wanted
-Discussion Forums
-	Letting people fill this in as they make new forum threads
+
+#### Community
+ - School Activities 
+ - Local News
+ - Philanthropy
+ - Parties
+ - Rush
+ - Sports Events
+ - Rideshare
+ - Volunteers
+ - Lost and Found
+ - Classes
+ - Group Projects
+ - Musicians
+#### Housing
+ - Housing Swap
+ - Off Campus
+ - School Housing
+ - Roommates Needed
+ - Sublets
+#### Jobs
+ - Local
+ - Part Time
+ - Internships
+ - Full Time
+ - Co-ops
+ - University 
+ - Research
+#### Services
+ - Automotive
+ - Computer
+ - Labor/Move
+ - Tutoring
+ - Pet
+ - DJ/Music
+ - Household
+#### For Sale
+ - Free Stuff
+ - Appliances
+ - Vehicles 
+ - Tickets
+ - Furniture
+ - Sporting
+ - Books
+ - Tools
+ - Barter
+ - Electronics
+ - General
+ - Jewelry
+ - Photo/Video
+ - Music Instruments
+ - Gaming 
+ - Wanted
+#### Discussion Forums
+ - Letting people fill this in as they make new forum threads

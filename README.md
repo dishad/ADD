@@ -37,12 +37,14 @@ To work with temporary dummy data:
  - Classes
  - Group Projects
  - Musicians
+
 #### Housing
  - Housing Swap
  - Off Campus
  - School Housing
  - Roommates Needed
  - Sublets
+
 #### Jobs
  - Local
  - Part Time
@@ -51,6 +53,7 @@ To work with temporary dummy data:
  - Co-ops
  - University 
  - Research
+
 #### Services
  - Automotive
  - Computer
@@ -59,6 +62,7 @@ To work with temporary dummy data:
  - Pet
  - DJ/Music
  - Household
+
 #### For Sale
  - Free Stuff
  - Appliances
@@ -76,5 +80,6 @@ To work with temporary dummy data:
  - Music Instruments
  - Gaming 
  - Wanted
+ 
 #### Discussion Forums
  - Letting people fill this in as they make new forum threads

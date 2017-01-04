@@ -55,7 +55,7 @@ def createacc(request):
 
 			print("about to create new user")
 			new_user = User.objects.create_user(**form.cleaned_data)
-			login(new_user)
+			login(request, new_user)
 
 			print("new user created: " + new_user.get_username() + " " + new_user.get_full_name())
 

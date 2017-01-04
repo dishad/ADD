@@ -35,16 +35,6 @@
 				<input id="createacc_submit" type="submit" value="Create Account" class="enabledButton"/>
 			</div>
 		</form>
-		{% if form.errors %}
-			<div id="form-error">
-				<p>The operation could not be performed because one or more error(s) occurred.<br />Please resubmit the form after making the following changes:</p>
-				<ul>
-					{% for field in form %}
-					<li>{{ field.errors|striptags }}</li>
-					{% endfor %}
-				</ul>
-			</div>
-		{% endif %}
 	</div>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
 

@@ -58,14 +58,6 @@ def createacc(request):
 		if form.is_valid():
 
 			print("about to create new user")
-<<<<<<< HEAD
-			new_user = User.objects.create_user(**form.cleaned_data)
-			login(request, new_user)
-
-			print("new user created: " + new_user.get_username() + " " + new_user.get_full_name())
-
-			return HttpResponseRedirect('core/index.html');
-=======
 			first_name = form.cleaned_data.get('first_name')
 			last_name = form.cleaned_data.get('last_name')
 			username = form.cleaned_data.get('username')
@@ -80,7 +72,6 @@ def createacc(request):
 				return HttpResponseRedirect('/');
 			else:
 				print('failed to authenticate user')
->>>>>>> 68e7d7e5d356d3dc8585ab70f5cff0c62ec18bc8
 
 		else:
 

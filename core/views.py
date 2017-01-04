@@ -9,7 +9,7 @@ from django.contrib.auth import logout as logout_user
 from django.contrib.auth.models import User
 
 from core.models import Category
-from core.forms import CreateAccForm
+from core.forms import CreateAccForm, ForgotPasswordForm
 
 @login_required
 def index(request):
@@ -30,7 +30,7 @@ def login(request):
 		if user is not None:
 			login_user(request, user)
 
-			return HttpResponseRedirect('core/index.html')
+			return HttpResponseRedirect('/')
 
 
 		else:
@@ -69,7 +69,7 @@ def createacc(request):
 			if new_user:
 				login_user(request, new_user)
 				print("new user created: " + new_user.get_username() + " " + new_user.get_full_name())
-				return render(request, 'core/index.html', {'curuser': new_user})
+				return HttpResponseRedirect('/');
 			else:
 				print('failed to authenticate user')
 
@@ -82,6 +82,21 @@ def createacc(request):
 	else:
 
 		return render(request, 'core/createacc.html', {'form': form})
+
+#
+def forgotpassword(request):
+
+	form = ForgotPasswordForm()
+
+	#if request.method == 'POST'
+
+		#TODO: forgot password functionality
+
+	#else
+
+	return render(request, 'core/forgotpassword.html', {'form': form})
+
+
 
 
 def get_categories():

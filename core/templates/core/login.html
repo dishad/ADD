@@ -10,7 +10,7 @@
 			<div class='loginheader'>
 				<h1 class='noselect'>deanslist</h1>
 			</div>
-			<form method="POST" id="login_form" action="{% url 'django.contrib.auth.views.login' %}">{% csrf_token %}
+			<form method="POST" id="login_form" action="">{% csrf_token %}
 					<label class='labeltext'>Username</label>
 					<input id='username' type='text' placeholder='Enter Username' name='username' class='textfield' required>
 					<label class='labeltext'>Password</label>
@@ -25,7 +25,7 @@
 							<span class='create'><a href="{% url 'core.views.createacc' %}">Create an account</a></span>
 						</div>
 						<div class="col-md-6">		
-							<span class='pass'><a href='#'>Forgot your password?</a></span>
+							<span class='pass'><a href="{% url 'core.views.forgotpassword' %}">Forgot your password?</a></span>
 						</div>
 					</div>
 			</form>

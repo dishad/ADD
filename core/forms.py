@@ -27,3 +27,15 @@ class CreateAccForm(forms.ModelForm):
 		widgets = {
 			'password': forms.PasswordInput()
 		}
+
+class ForgotPasswordForm(forms.ModelForm):
+
+	username = forms.CharField(label="Username:", max_length=30)
+	email = forms.CharField(label="Email:", max_length=30)
+	secquestion = forms.CharField(label="What is your mother's maiden credit card number?", max_length=50)
+
+	class Meta:
+		model = User
+		fields = ('username', 'email')
+
+

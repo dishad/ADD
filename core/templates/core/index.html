@@ -29,11 +29,21 @@
 
 	<div class="container">
 		{% for category in categories %}
-			<div>
-				{{ category.name }}
+			{% if not category.parent_category %} <!-- not a subcategory -->
+				<div class="category-wrapper">
+					{{ category.name }}
 
-				{% get_subcategories category.name %}
-			</div>
+					{% get_subcategories category.name as subcategories %}
+
+					{% if subcategories %}
+						<ul>
+						{% for subcategory in subcategories %}
+							<li>{{ subcategory.name }}</li>
+						{% endfor %}
+						</ul>
+					{% endif %}
+				</div>
+			{% endif %}
 		{% endfor %}
 	</div>
 {% endblock %}

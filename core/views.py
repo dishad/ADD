@@ -3,7 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import Context, loader
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
 from django.contrib.auth.models import User
 
 from core.models import Category
@@ -26,7 +27,7 @@ def login(request):
 
 		user = authenticate(username=username, password=password)
 		if user is not None:
-			login(request, user)
+			auth_login(request, user)
 
 			return HttpResponseRedirect('core/index.html')
 

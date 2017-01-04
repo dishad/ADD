@@ -1,7 +1,16 @@
-html {
+body {
 	background: #222;
+	color: #ddd;
 }
 
 article {
 	padding-top: 5em;
+}
+
+.category-wrapper:nth-child(odd) {
+	background: #444;
+}
+
+.category-wrapper:nth-child(even) {
+	background: #777;
 }

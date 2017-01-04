@@ -18,7 +18,7 @@ This is gonna change the social media game bruh.
  `python manage.py runserver localhost:8001`
 
 ## Populating the database
-To work with temporary dummy data:
+To load all categories:
 
  `python manage.py populate_db`
 
@@ -38,12 +38,12 @@ To work with temporary dummy data:
  - Group Projects
  - Musicians
 
-#### Housing
- - Housing Swap
- - Off Campus
- - School Housing
- - Roommates Needed
- - Sublets
+#### ~~Housing~~
+ - ~~Housing Swap~~
+ - ~~Off Campus~~
+ - ~~School Housing~~
+ - ~~Roommates Needed~~
+ - ~~Sublets~~
 
 #### Jobs
  - Local
@@ -74,10 +74,10 @@ To work with temporary dummy data:
  - Tools
  - Barter
  - Electronics
- - General
+ - Miscellaneous
  - Jewelry
  - Photo/Video
- - Music Instruments
+ - Musical Instruments
  - Gaming 
  - Wanted
  

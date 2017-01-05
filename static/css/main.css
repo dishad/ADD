@@ -1,7 +1,119 @@
-html {
-	background: #222;
+html,article,body {
+	width: 100%;
+	height: 100%;
+	background-color: #aaa;
 }
 
-article {
-	padding-top: 5em;
+/*
+input[type=text], input[type=password] {
+    padding-left: 5px;
+    display: block;s
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
+*/
+
+
+input[type='checkbox'] {
+    width: 12px;
+	height: 12px;
+	padding-top: 2px;
+}
+
+label {
+	display: inline-block;
+	padding: 5px;
+}
+
+.login {
+	padding: 40px 15px;
+	display: block;
+	background-color: #7C7C7C;
+	height: 100%;
+}
+
+.container {
+	height: 100%;
+}
+
+.labeltext {
+	margin-top: 10px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.enabledButton {
+	background: #2672ec;
+	color: #fff;
+	border: 1px solid #fff;
+	display: block;
+	width: 200px;
+	height: 30px;
+}
+
+.loginheader {
+	width: 100%;
+	text-align: center;
+	color: white;
+}
+
+.createheader {
+	width: 100%;
+	text-align: center;
+	color: white;
+}
+
+form {
+	position: relative;
+	margin: 40px auto;
+}
+
+.check {
+	margin: 0;
+	font-size: 14px;
+	padding-left: 5px;
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 42px;
+	text-align: center;
+}
+
+
+.loginOptions {
+	text-align: center;
+	margin-top: 20px;
+	color: #fff;
+}
+
+a {
+	position: relative;
+	color: white;
+}
+.pass {
+	/*margin-left: 68px;*/
+}
+
+.account {
+	margin-top: 50px;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
+
+.createButton {
+	background: #2672ec;
+	color: #fff;
+	border: 1px solid #fff;
+	display: block;
+	margin: 20px auto;
+	width: 160px;
+	height: 30px;
+}
+

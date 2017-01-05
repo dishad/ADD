@@ -5,30 +5,83 @@
 {% block title %}Log In | {{ block.super }}{% endblock %}
 
 {% block content %}
-	<div class='container'>
-		<div class='login'>
-			<div class='loginheader'>
-				<h1 class='noselect'>deanslist</h1>
+	<div id="links">
+		<div class="row">
+			<div class="col-md-8"></div>
+			<div class="col-md-2">
+				<a class="btn btn-default" href="{% url 'core.views.createacc' %}">Create an account</a>
 			</div>
+			<div class="col-md-2">
+				<a class="btn btn-default" href="{% url 'core.views.forgotpassword' %}">Forgot your password?</a>
+			</div>
+		</div>
+	</div>
+	<div class='container'>
+		<div class='row'>
+			<div class="col-md-12">
+				<h1 class='noselect'><strong>deanslist</strong></h1>
+			</div>
+		</div>
+		<div class="container">
 			<form method="POST" id="login_form" action="">{% csrf_token %}
-					<label class='labeltext'>Username</label>
-					<input id='username' type='text' placeholder='Enter Username' name='username' class='textfield' required>
-					<label class='labeltext'>Password</label>
-					<input id='password' type=password placeholder='Enter Password' name='password' class='textfield' required>
-					
-					<div class='loginOptions'>
-						<input type='checkbox'><label class='check'>Keep me signed in</label>
-						<button class='enabledButton' type='submit'>Sign in</button>
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						<label class='labeltext'><h4><strong>Username:</strong></h4></label>
 					</div>
-					<div class='account row'>
-						<div class="col-md-6">
-							<span class='create'><a href="{% url 'core.views.createacc' %}">Create an account</a></span>
-						</div>
-						<div class="col-md-6">		
-							<span class='pass'><a href="{% url 'core.views.forgotpassword' %}">Forgot your password?</a></span>
-						</div>
+					<div class="col-md-3"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						<input id='username' type='text' placeholder='Enter Username' name='username' class='form-control' required>
 					</div>
+					<div class="col-md-3"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						<label class='labeltext'><h4><strong>Password:</strong></h4></label>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						<input id='password' type=password placeholder='Enter Password' name='password' class='form-control' required>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+				
+				<div class='submission'>
+					<div class='row'>
+						<div class="col-md-3"></div>
+						<div class="col-md-3">
+							<span class="signedincheck"><input type='checkbox' class="keepsignedin">
+								<label class='check'><h4>Keep me signed in</h4></label>
+							</span>
+						</div>
+						<div class="col-md-3">
+							<input id="createacc_submit" type="submit" value="Log In" class="btn btn-block btn-primary btn-lg"/>
+						</div>
+						<div class="col-md-3"></div>
+					</div>
+				</div>
 			</form>
+			<!--
+			<div id="bottomlinks">
+				<div class='row'>
+					<div class="col-md-3"></div>
+					<div class="col-md-3">
+						<a class="btn btn-default btn-block btn-sm"href="{% url 'core.views.createacc' %}"><h4>Create an account</h4></a>
+					</div>
+					<div class="col-md-3">		
+						<a class="btn btn-default btn-block btn-sm" href="{% url 'core.views.forgotpassword' %}"><h4>Forgot your password?</h4></a>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		-->
 		</div>
 	</div>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />

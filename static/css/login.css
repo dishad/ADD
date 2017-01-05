@@ -4,14 +4,6 @@ html,article,body {
 	background-color: #aaa;
 }
 
-/*
-input[type=text], input[type=password] {
-    padding-left: 5px;
-    display: block;s
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-*/
 
 #links {
 	text-align: center;
@@ -21,6 +13,23 @@ input[type=text], input[type=password] {
 #links a {
 	width: 75%;
 
+}
+
+.btn-primary: {
+	background-color: #d12323;
+}
+
+h1 {
+	font-size: 42px;
+	text-align: center;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently not supported by any browser */
 }
 
 
@@ -35,12 +44,6 @@ label {
 	padding: 5px;
 }
 
-.login {
-	padding: 40px 15px;
-	display: block;
-	background-color: #7C7C7C;
-	height: 100%;
-}
 
 .container {
 	height: 100%;
@@ -48,27 +51,6 @@ label {
 
 .labeltext {
 	margin-top: 10px;
-}
-
-.enabledButton {
-	background: #2672ec;
-	color: #fff;
-	border: 1px solid #fff;
-	display: block;
-	width: 200px;
-	height: 30px;
-}
-
-.loginheader {
-	width: 100%;
-	text-align: center;
-	color: white;
-}
-
-.createheader {
-	width: 100%;
-	text-align: center;
-	color: white;
 }
 
 form {
@@ -83,11 +65,6 @@ form {
 	font-weight: normal;
 }
 
-h1 {
-	font-size: 42px;
-	text-align: center;
-}
-
 
 .loginOptions {
 	text-align: center;
@@ -95,32 +72,6 @@ h1 {
 	color: #fff;
 }
 
-
-.pass {
-	/*margin-left: 68px;*/
-}
-
-.account {
-	margin-top: 50px;
-}
-
-.noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Chrome/Safari/Opera */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently not supported by any browser */
-}
-
-.createButton {
-	background: #2672ec;
-	color: #fff;
-	border: 1px solid #fff;
-	display: block;
-	margin: 20px auto;
-	width: 160px;
-	height: 30px;
-}
 
 .submission {
 	margin-top: 50px;
@@ -132,12 +83,3 @@ h1 {
 	text-align: center;
 }
 
-#bottomlinks {
-	margin-top: 75px;
-}
-
-.bottom-link {
-	position: relative;
-	color: white;
-
-}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
 
 class Category(models.Model):
     """
@@ -12,22 +13,13 @@ class Category(models.Model):
     # Subcategories can be represented by assigning an existing Category
     #  instance as another's parent_category
 
+    def save(self, *args, **kwargs):
+    	# newly created category, set slug
+    	if not self.id:
+    		self.slug = slugify(self.name)
 
-'''
-class User(models.Model):
-    
-    """
-    Model class for user
-    """
-    
-    # Firstname/lastname? Or is that unnecessary
-    first_name = models.CharField(u'FirstName', max_length=30)
-    last_name = models.CharField(u'FirstName', max_length=30)
-    username = models.CharField(u'Username', max_length=30)
-    email = models.CharField(u'Email', max_length=30)
-    password = models.CharField(u'Password', max_length=30)
-    # TODO: Password authentication
-'''
+    	super(Category, self).save(*args, **kwargs)
+
 class SalePost(models.Model):
     
     """

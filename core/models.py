@@ -27,6 +27,7 @@ class SalePost(models.Model):
     """
     
     title = models.CharField(u'Title', max_length=50)
-    #slug = models.SlugField(unique=True)
+    price = models.CharField(u'Price', max_length=10)
     description = models.TextField(u'Description', blank=True)
     poster = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)

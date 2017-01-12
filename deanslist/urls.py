@@ -26,7 +26,8 @@ urlpatterns = [
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'core/login.html'}),
     url(r'^admin/', admin.site.urls),
     url(r'^createacc/', core.views.createacc),
-    url(r'^forgotpassword/', core.views.forgotpassword)
+    url(r'^forgotpassword/', core.views.forgotpassword),
+    url(r'^newpostsuccess/', core.views.newpostsuccess)
     #TODO category-slug/
     #TODO category-slug/subcategory-slug
     #TODO category-slug/subcategory-slug/ (post-slug? or post number?)

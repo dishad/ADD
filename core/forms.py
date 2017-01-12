@@ -1,16 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
+from core.models import Post, Category
 
 # forms will go here. create account has been added, new post form will probably go here
-
-'''
-class LoginForm(forms.ModelForm):
-
-	class Meta:
-
-		model = User
-		fields = ('username', 'password')
-'''
 
 class CreateAccForm(forms.ModelForm):
 
@@ -34,12 +26,26 @@ class CreateAccForm(forms.ModelForm):
 
 class ForgotPasswordForm(forms.ModelForm):
 
-	username = forms.CharField(label="Username:", max_length=30)
-	email = forms.CharField(label="Email:", max_length=30)
 	secquestion = forms.CharField(label="What is your mother's maiden credit card number?", max_length=50)
 
 	class Meta:
 		model = User
 		fields = ('username', 'email')
+		widgets = {
+			'username': forms.TextInput(attrs={'class': 'form-control'}),
+			'email': forms.TextInput(attrs={'class': 'form-control'}),
+		}
+
+class PostForm(forms.ModelForm):
+
+	class Meta:
+		model = Post
+		fields = ('title', 'price', 'description')
+		widgets = {
+			'title': forms.TextInput(attrs={'class': 'form-control'}),
+			'price': forms.TextInput(attrs={'class': 'form-control'}),
+			'description': forms.Textarea(attrs={'class': 'form-control', 'rows': '10'}),
+			#'category': forms.
+		}
 
 

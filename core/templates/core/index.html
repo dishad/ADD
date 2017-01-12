@@ -11,7 +11,9 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="nav-item">
 					<form class="form-inline float-xs-right">
-						<button class="btn btn-primary navbar-btn" type="button">New Post <span class="glyphicon glyphicon-plus"></span></button>
+						<button id="new_post_button" class="btn btn-primary navbar-btn" type="button" data-toggle="modal" data-target="#new_post_form">
+							New Post <span class="glyphicon glyphicon-plus"></span>
+						</button>
 					</form>
 				</li>
 				<li class="nav-item">
@@ -29,8 +31,8 @@
 
 	<!-- new post form modal -->
 
-	<div class="modal fade">
-	  <div class="modal-dialog" role="document">
+	<div class="modal fade" id="new_post_form" tabindex="-1" role="dialog">
+	  <div class="modal-dialog modal-lg" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -42,15 +44,70 @@
 	        <form method="POST" id="newpost" action="">
 	        	{% csrf_token %}
 	        	<div class="row">
-	        		<div class="col-md-12">
-	        			{% form title.errors %}
+	        		<div class="col-md-1"></div>
+	        		<div class="col-md-8">
+	        			{{ form.title.errors }}
+	        			<label for="{{ form.title.id_for_label }}"><h4><strong>Title:</strong></h4></label>
 	        		</div>
-	        	</div>	
-	        </form>
+	        		<div class="col-md-1"></div>
+	        		<div class="col-md-1">
+	        			{{ form.price.errors }}
+	        			<label for="{{ form.price.id_for_label }}"><h4><strong>Price:</strong></h4></label>
+	        		<div class="col-md-1"></div>
+	        	</div>
+	        	<div class="row">
+	        		<div class="col-md-1"></div>
+	        		<div class="col-md-8">
+	        			{{ form.title }}
+	        		</div>
+	        		<div class="col-md-1"></div>
+	        		<div class="col-md-1">
+	        			{{ form.price }}
+	        		</div>
+	        		<div class="col-md-1"></div>
+	        	</div>
+	        	<div class="row">
+	        		<div class="col-md-1"></div>
+	        		<div class="col-md-10">
+	        			{{ form.description.errors }}
+	        		</div>
+	        		<div class="col-md-1"></div>
+	        	</div>
+	        	<div class="row">
+	        		<div class="col-md-1"></div>
+	        		<div class"col-md-10">
+	        			<select name="categories" id="categories" class="form-control">
+	        				<option value=""></option>
+	        				{% for category in categories %}
+	        					{% if not category.parent_category %}
+	        						<option value="{{ category.id }}">{{ category.name }}</option>
+	        					{% endif %}
+	        				{% endfor %}
+	        			</select>
+	        		</div>
+	        		<!--
+	        		<div class="col-md-2"></div>
+	        		<div class="col-md-4"></div>
+	        	-->
+	        		<div class="col-md-1"></div>
+	        	</div>
+	        	<div class="submission">
+	        		<div class="row">
+	        			<div class="col-md-8"></div>
+	        			<div class="col-md-3">
+	        				<input type="submit" id="post_submit" value="Create Post" class="btn btn-primary btn-block btn-lg"/>
+	        			</div>
+	        			<div class="col-md-1"></div>
+	        		</div>
+	        	</div>
+	      	</form>
 	      </div>
 	    </div>
 	  </div>
 	</div>
+
+
+
 	<div class="container">
 		{% for category in categories %}
 			{% if not category.parent_category %} <!-- not a subcategory -->
@@ -71,3 +128,10 @@
 		{% endfor %}
 	</div>
 {% endblock %}
+<script type="text/javascript" src=
+<script type="text/javascript">
+
+	// debugging
+	$("#")
+
+</script>

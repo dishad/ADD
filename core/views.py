@@ -8,14 +8,18 @@ from django.contrib.auth import login as login_user
 from django.contrib.auth import logout as logout_user
 from django.contrib.auth.models import User
 
-from core.models import Category
-from core.forms import CreateAccForm, ForgotPasswordForm
+from core.models import Category, Post
+from core.forms import CreateAccForm, ForgotPasswordForm, PostForm
 
 @login_required
 def index(request):
+
+	newpostform = PostForm()
+
 	return render(request, 'core/index.html',
 		{
-			'categories': get_categories()
+			'categories': get_categories(),
+			'form': newpostform
 		})
 
 def login(request):
@@ -83,10 +87,8 @@ def createacc(request):
 
 		return render(request, 'core/createacc.html', {'form': form})
 
-#
+# forgot password
 def forgotpassword(request):
-
-	form = ForgotPasswordForm()
 
 	#if request.method == 'POST'
 
@@ -96,7 +98,32 @@ def forgotpassword(request):
 
 	return render(request, 'core/forgotpassword.html', {'form': form})
 
+def newpost(request):
 
+	form = PostForm(request.POST)
+
+	if form.is_valid():
+
+		cur_user = request.user
+
+
+		title = form.cleaned_data.get('title')
+		price = form.cleaned_data.get('price')
+		description = form.cleaned_data.get('description')
+		poster = cur_user.id
+		category = form.cleaned_data.get('category')
+		subcategory = form.cleaned_data.get('subcategory')
+
+		Post.objects.create(title=title, price=price, description=description, poster=poster, category=category)
+
+		HttpResponseRedirect('/newpostsuccess')
+
+	else:
+		print('form not valid')
+
+		HttpResponseRedirect('/')
+def newpostsuccess(request):
+	return render(request, 'core/newpostsuccess.html')
 
 
 def get_categories():

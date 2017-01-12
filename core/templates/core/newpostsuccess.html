@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load custom_tags %}
+
+{% block content %}
+
+	<div class="container">
+		<div class="alert alert-success" role="alert" id="newpostsuccess">
+			<h2>Post successfully added</h2>
+			<h4><strong>Click <a href="{% url 'core.views.index' %}">here</a> to return to the index page.</strong></h4>
+		</div>
+	</div>
+{% endblock %}
